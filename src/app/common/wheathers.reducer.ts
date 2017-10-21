@@ -5,7 +5,7 @@ import { AppConfig } from '../app.config';
 export type Action = wheatherActions.CitiesActions;
 
 export interface Cities {
-    date: Date;
+    date: number;
     cities: any[];
 }
 
@@ -23,9 +23,9 @@ export function reducer(state = initialState, action: Action & {payload?: any}):
             return { ...state};
         }
         case wheatherActions.WheathersActionTypes.UPDATE_SUCCESS: {
-            const cities = {date: new Date(), cities: action.payload.list};
+            const citiesUp = {date: Date.now(), cities: action.payload.list};
             const wheathers = state.wheathers.slice();
-            wheathers.unshift(cities);
+            wheathers.unshift(citiesUp);
             return { ...state, wheathers};
         }
         case wheatherActions.WheathersActionTypes.UPDATE_FAILURE: {

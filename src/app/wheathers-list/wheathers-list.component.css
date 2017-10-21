@@ -1,0 +1,27 @@
+.jumbotron {
+    padding: 1rem 2rem;
+}
+
+.city-name {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.temperature {
+    color: #379392;
+}
+
+.weather-description {
+    top: 8px;
+    position: relative;
+}
+
+.date {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.cities {
+    text-align: center;
+}

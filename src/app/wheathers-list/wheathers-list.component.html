@@ -1,13 +1,26 @@
-<div class="jumbotron"
-     *ngFor="let wheather of wheathersState.wheathers">
-  <div class="row">
-    <div class="col-sm"
-         *ngFor="let city of wheather.cities">
-      <h1>{{city?.name}}</h1>
-      <h2>{{city.main?.temp}} °C</h2>
+<div class="container">
+  <div class="jumbotron"
+       *ngFor="let wheather of wheathersState.wheathers">
+    <div class="row">
+      <div class="col-md">
+        <p class="date">{{wheather.date | date: 'medium'}}</p>
+      </div>
+    </div>  
+    <div class="row cities">
+      <div class="col-sm"
+        *ngFor="let city of wheather.cities">
+        <h4 class="city-name">
+            {{city?.name}}
+            <small class="text-muted">{{city?.sys.country}}</small>
+        </h4>
+        <h4 class="display-4 temperature">{{city.main?.temp | number:'2.0-0' }} 
+          <small class="text-muted">°C</small>
+        </h4>
+        <div class="d-flex flex-row justify-content-center">
+          <img [src]="'./assets/img/' + city.weather[0].icon +'.png'">
+          <span class="lead weather-description">{{city.weather[0].description | titlecase}}</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <p>{{wheather.date}}</p>
-  </div>  
 </div>
