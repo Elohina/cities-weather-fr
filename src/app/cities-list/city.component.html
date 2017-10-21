@@ -1,5 +1,11 @@
-<div style="text-align:center"
-     *ngFor="let city of cities.cities">
-  <p>{{city?.name}}</p>
-  <p>{{city.wind?.speed}}</p>
+<div class="jumbotron" *ngFor="let wheather of citiesState.wheathers">
+  <div class="row">
+    <div class="col-sm" *ngFor="let city of wheather.cities">
+      <h1>{{city?.name}}</h1>
+      <h2>{{city.main?.temp}} °C</h2>
+    </div>
+  </div>
+  <div class="row">
+    <p>{{wheather.date}}</p>
+  </div>  
 </div>

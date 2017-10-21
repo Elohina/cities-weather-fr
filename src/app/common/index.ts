@@ -4,7 +4,7 @@ import {compose} from '@ngrx/store';
 import {combineReducers} from '@ngrx/store';
 
 export interface AppState {
-    cities: fromCities.State;
+    wheathers: fromCities.State;
 }
 
 export const reducers = {
@@ -17,6 +17,5 @@ export function metaReducer(state: any, action: any) {
     return developmentReducer(state, action);
 }
 
-export const getCitiesState = (state: AppState) => state.cities;
-
-export const getCities = createSelector(getCitiesState, fromCities.getCities);
+export const getWheathersState = (state: AppState) => state.wheathers;
+export const getWheathers = createSelector(getWheathersState, fromCities.getWheathers);

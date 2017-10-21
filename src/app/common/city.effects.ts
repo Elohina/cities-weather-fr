@@ -24,7 +24,7 @@ export class CityEffects {
         })
     )
     .catch(
-        () => of( new UpdateWheatherFailedAction())
+        (err) => of( new UpdateWheatherFailedAction())
     );
 
     constructor(private actions: Actions,

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./city.component.css']
 })
 export class CitiesListComponent {
-  @Input('cities') cities: any;
+  @Input('citiesState') citiesState: any;
   constructor() {
   }
 }

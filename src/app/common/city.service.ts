@@ -6,20 +6,12 @@ import { AppConfig } from '../app.config';
 
 @Injectable()
 export class CitiesService {
-    public cities: any;
-
-    constructor(private http: Http, private store: Store<fromRoot.AppState>) {
-        store.select(fromRoot.getCitiesState).subscribe(
-            (cities: any) => {
-                this.cities = cities;
-            }
-        );
-    }
+    constructor(private http: Http, private store: Store<fromRoot.AppState>) {}
 
     getWeatherCities() {
-        const ids: any[] = this.cities.cities.map( city => city.id );
+        const ids: any[] = AppConfig.CITIES;
         return this.http.get(
-            AppConfig.API_URL + '?id=' + ids + '&appid' + AppConfig.API_KEY
+            AppConfig.API_URL + '&id=' + ids + '&appid=' + AppConfig.API_KEY
         );
     }
 }

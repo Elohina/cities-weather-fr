@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({cities: reducer}),
+    StoreModule.forRoot({wheathers: reducer}),
     EffectsModule.forRoot([CityEffects]),
     HttpModule
   ],

@@ -3,7 +3,7 @@ import {Action} from '@ngrx/store';
 export const CitiesActionTypes = {
     UPDATE_CITIES_WHEATHER: '[Cities] Update cities wheather',
     UPDATE_SUCCESS: '[Cities] Successfully updated wheather cities',
-    UPDATE_FAILURE: '[Cities] Failed to load wheater cities'
+    UPDATE_FAILURE: '[Cities] Failed to load wheater cities',
 };
 
 export class UpdateWheatherAction implements Action {

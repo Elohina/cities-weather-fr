@@ -4,12 +4,17 @@ import { AppConfig } from '../app.config';
 
 export type Action = cities.CitiesActions;
 
-export interface State {
+export interface Cities {
+    date: Date;
     cities: any[];
 }
 
+export interface State {
+    wheathers: Cities[];
+}
+
 export const initialState: State = {
-    cities: AppConfig.CITIES
+    wheathers: []
 };
 
 export function reducer(state = initialState, action: Action & {payload?: any}): State {
@@ -18,16 +23,19 @@ export function reducer(state = initialState, action: Action & {payload?: any}):
             return { ...state};
         }
         case cities.CitiesActionTypes.UPDATE_SUCCESS: {
-            const cities = action.payload['list'];
-            return { ...state, cities};
+            const cities = {date: new Date(), cities: action.payload.list};
+            const wheathers = state.wheathers.slice();
+            wheathers.unshift(cities);
+            return { ...state, wheathers};
         }
-        case cities.CitiesActionTypes.UPDATE_FAILURE: {
-            return Object.assign({}, state, {
-                cities: []
-            });
-        }
+        //TODO
+        // case cities.CitiesActionTypes.UPDATE_FAILURE: {
+        //     return Object.assign({}, state, {
+        //         cities: []
+        //     });
+        // }
         default: return { ...state};
     }
 }
 
-export const getCities = (state: State) => state.cities;
+export const getWheathers = (state: State) => state.wheathers;
