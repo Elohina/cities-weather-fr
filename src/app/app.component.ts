@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRoot from './common/index';
-import * as cities from './common/city.actions';
+import * as cities from './common/wheathers.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -10,14 +10,14 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public wheathers$: Observable<any>;
+  public wheathersState$: Observable<any>;
 
   constructor(private store: Store<fromRoot.AppState>) {
-    this.wheathers$ = this.store.select('wheathers');
+    this.wheathersState$ = this.store.select('wheathers');
   }
 
   ngOnInit() {
-    let intervalId = setInterval(() => {
+    const intervalId = setInterval(() => {
       this.store.dispatch(new cities.UpdateWheatherAction());
     }, 1000 * 1 * 60 * 3);
     this.store.dispatch(new cities.UpdateWheatherAction());

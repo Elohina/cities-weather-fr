@@ -1,6 +1,8 @@
-<div class="jumbotron" *ngFor="let wheather of citiesState.wheathers">
+<div class="jumbotron"
+     *ngFor="let wheather of wheathersState.wheathers">
   <div class="row">
-    <div class="col-sm" *ngFor="let city of wheather.cities">
+    <div class="col-sm"
+         *ngFor="let city of wheather.cities">
       <h1>{{city?.name}}</h1>
       <h2>{{city.main?.temp}} °C</h2>
     </div>

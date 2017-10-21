@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect';
-import * as fromCities from './city.reducer';
+import * as wheatherReducer from './wheathers.reducer';
 import {compose} from '@ngrx/store';
 import {combineReducers} from '@ngrx/store';
 
 export interface AppState {
-    wheathers: fromCities.State;
+    wheathers: wheatherReducer.State;
 }
 
 export const reducers = {
-    citiesReducer: fromCities.reducer
+    wheatherReducer: wheatherReducer.reducer
 };
 
 const developmentReducer: Function = compose(combineReducers)(reducers);
@@ -18,4 +18,4 @@ export function metaReducer(state: any, action: any) {
 }
 
 export const getWheathersState = (state: AppState) => state.wheathers;
-export const getWheathers = createSelector(getWheathersState, fromCities.getWheathers);
+export const getWheathers = createSelector(getWheathersState, wheatherReducer.getWheathers);
