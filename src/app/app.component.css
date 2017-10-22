@@ -1,0 +1,13 @@
+.app-name-container {
+    padding: 2%;
+    background-color: #0b7688;
+    max-width: 100%;
+}
+
+.app-name {
+    color: #ffffff;
+}
+
+.weather-container {
+    margin-top: 20px;
+}

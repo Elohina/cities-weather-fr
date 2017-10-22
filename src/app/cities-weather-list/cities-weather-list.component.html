@@ -1,26 +1,29 @@
-<div class="container">
-  <div class="jumbotron"
-       *ngFor="let weatherRecord of weatherState.weather">
-    <div class="row">
-      <div class="col-md">
-        <p class="date">{{weatherRecord.date | date: 'medium'}}</p>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="card" *ngFor="let weatherRecord of weatherState.weather; let i = index">
+      <div class="card-header" role="tab" id="date-header">
+        <h5 class="mb-0">
+          <a class="date" data-toggle="collapse" data-parent="#accordion" href="#{{weatherRecord.date}}" aria-expanded="false" >
+            {{weatherRecord.date | date: 'medium'}}
+          </a>
+        </h5>
       </div>
-    </div>  
-    <div class="row cities">
-      <div class="col-sm"
-        *ngFor="let city of weatherRecord.cities">
-        <h4 class="city-name">
-            {{city?.name}}
-            <small class="text-muted">{{city?.sys.country}}</small>
-        </h4>
-        <h4 class="display-4 temperature">{{city.main?.temp | number:'2.0-0' }} 
-          <small class="text-muted">°C</small>
-        </h4>
-        <div class="d-flex flex-row justify-content-center">
-          <img [src]="'./assets/img/' + city.weather[0].icon +'.png'">
-          <span class="lead weather-description">{{city.weather[0].description | titlecase}}</span>
+      <div id="{{weatherRecord.date}}" class="collapse" [ngClass]="{'show': i == 0}" role="tabpanel" aria-labelledby="date-header">
+        <div class="card-block row cities">
+            <div class="col-sm"
+              *ngFor="let city of weatherRecord.cities">
+            <h4 class="city-name">
+                {{city?.name}}
+                <small class="text-muted">{{city?.sys.country}}</small>
+            </h4>
+            <h4 class="display-4 temperature">{{city.main?.temp | number:'2.0-0' }} 
+              <small class="text-muted">°C</small>
+            </h4>
+            <div class="d-flex flex-row justify-content-center">
+              <img [src]="'./assets/img/' + city.weather[0].icon +'.png'">
+              <span class="lead weather-description">{{city.weather[0].description | titlecase}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

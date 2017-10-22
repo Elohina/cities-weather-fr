@@ -19,7 +19,13 @@
 
 .date {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+a.date:hover {
+    color: #379392;
 }
 
 .cities {
