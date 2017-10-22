@@ -4,25 +4,25 @@ import { StoreModule } from '@ngrx/store';
 import { metaReducer } from './common/index';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpModule } from '@angular/http';
-import { WheathersService } from './common/wheathers.service';
-import { WheathersListComponent } from './wheathers-list/wheathers-list.component';
-import { WheathersEffects } from './common/wheathers.effects';
-import { reducer } from './common/wheathers.reducer';
+import { CitiesWeatherService } from './common/cities-weather.service';
+import { CitiesWeatherListComponent } from './cities-weather-list/cities-weather-list.component';
+import { CitiesWeatherEffects } from './common/cities-weather.effects';
+import { CitiesWeatherReducer } from './common/cities-weather.reducer';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WheathersListComponent
+    CitiesWeatherListComponent
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({wheathers: reducer}),
-    EffectsModule.forRoot([WheathersEffects]),
+    StoreModule.forRoot({weather: CitiesWeatherReducer}),
+    EffectsModule.forRoot([CitiesWeatherEffects]),
     HttpModule
   ],
-  providers: [WheathersService],
+  providers: [CitiesWeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

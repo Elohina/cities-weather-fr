@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "my-wheather-map-fr"
+    "name": "cities-weather-fr"
   },
   "apps": [
     {

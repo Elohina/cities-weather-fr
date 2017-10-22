@@ -3,7 +3,7 @@ import { Response, Http, Headers, RequestOptions } from '@angular/http';
 import { AppConfig } from '../app.config';
 
 @Injectable()
-export class WheathersService {
+export class CitiesWeatherService {
     constructor(private http: Http) {}
 
     getWeatherCities() {

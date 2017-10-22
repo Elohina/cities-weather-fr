@@ -1,14 +1,14 @@
 <div class="container">
   <div class="jumbotron"
-       *ngFor="let wheather of wheathersState.wheathers">
+       *ngFor="let weatherRecord of weatherState.weather">
     <div class="row">
       <div class="col-md">
-        <p class="date">{{wheather.date | date: 'medium'}}</p>
+        <p class="date">{{weatherRecord.date | date: 'medium'}}</p>
       </div>
     </div>  
     <div class="row cities">
       <div class="col-sm"
-        *ngFor="let city of wheather.cities">
+        *ngFor="let city of weatherRecord.cities">
         <h4 class="city-name">
             {{city?.name}}
             <small class="text-muted">{{city?.sys.country}}</small>

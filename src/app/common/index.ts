@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect';
-import * as wheatherReducer from './wheathers.reducer';
+import * as weatherReducer from './cities-weather.reducer';
 import {compose} from '@ngrx/store';
 import {combineReducers} from '@ngrx/store';
 
 export interface AppState {
-    wheathers: wheatherReducer.State;
+    weather: weatherReducer.State;
 }
 
 export const reducers = {
-    wheatherReducer: wheatherReducer.reducer
+    weatherReducer: weatherReducer.CitiesWeatherReducer
 };
 
 const developmentReducer: Function = compose(combineReducers)(reducers);
@@ -17,5 +17,5 @@ export function metaReducer(state: any, action: any) {
     return developmentReducer(state, action);
 }
 
-export const getWheathersState = (state: AppState) => state.wheathers;
-export const getWheathers = createSelector(getWheathersState, wheatherReducer.getWheathers);
+export const getWheathersState = (state: AppState) => state.weather;
+export const getWheathers = createSelector(getWheathersState, weatherReducer.getWeather);
